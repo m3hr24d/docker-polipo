@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  app:
+    build: .
+    container_name: polipo
+    image: m3hr24d/docker-polipo:latest
+    environment:
+    - PROXY_ADDRESS=0.0.0.0
+    - ALLOWED_CLIENTS=0.0.0.0/24
+    - PROXY_NAME=polipo
+    - PARENT_PROXY=
+    - PARENT_PROXY_PORT=
+    - SOCKS_PARENT_PROXY=localhost
+    - SOCKS_PARENT_PROXY_PORT=8388
+    - SOCKS_PROXY_TYPE=socks5
+    - DISK_CACH_ROOT=
+    - DISABLE_INDEXING=false
+    - DISABLE_SERVERS_LIST=false
+    - SERVER_EXPIRE_TIME=5d
+    ports:
+    - "8123:8123"
